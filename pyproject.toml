@@ -1,0 +1,29 @@
+[project]
+name = "vep-validation-tools"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "jreakin", email = "johnreakin@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "rapidfuzz>=3.10.1",
+    "tomli>=2.2.1",
+    "usaddress>=0.5.11",
+    "usaddress-scourgify>=0.6.0",
+    "election_utils; sys_platform == 'darwin'",
+    "election_utils; sys_platform == 'linux'",
+]
+
+[project.scripts]
+vep-validation-tools = "vep_validation_tools:main"
+
+[tool.uv.sources]
+election_utils = [
+    { path = "../election-utils", marker = "sys_platform == 'darwin'", editable = true },
+    { git = "https://github.com/jreakin/jre-election-utils.git", marker = "sys_platform == 'linux'" }
+]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
