@@ -14,6 +14,8 @@ dependencies = [
     "usaddress-scourgify>=0.6.0",
     "election_utils; sys_platform == 'darwin'",
     "election_utils; sys_platform == 'linux'",
+    "pandas>=2.2.3",
+    "phonenumbers>=8.13.52",
 ]
 
 [project.scripts]
